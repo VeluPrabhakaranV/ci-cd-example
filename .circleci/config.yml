@@ -25,7 +25,7 @@ jobs:
       - attach_workspace:
           at: .
       - checkout
-      - run: aws s3 sync ./app s3://cicd-circleci
+      - run: aws s3 sync ./app/build s3://cicd-circleci
     
 
 workflows:
@@ -33,4 +33,6 @@ workflows:
     jobs:
       - build
       
-      - deploy
+      - deploy:
+          requires:
+            - build
