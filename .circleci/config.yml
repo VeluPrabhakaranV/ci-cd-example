@@ -27,6 +27,7 @@ jobs:
       - checkout
       - run: aws s3 sync ./app/build s3://cicd-circleci
     
+    
 workflows:
   build_deploy:
     jobs:
